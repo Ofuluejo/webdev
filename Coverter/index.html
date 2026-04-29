@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit converter</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="background-anim"></div>
+    <button id="dark-toggle" title="Toggle dark mode">
+        <svg id="dark-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07l-1.41-1.41M6.34 6.34l-1.41-1.41m12.02 0l-1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
+    </button>
+    <button id="help-btn" title="Help">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+    </button>
+    <div id="help-tooltip" class="hidden">Type a number and hit Convert to see length, volume, and mass conversions. Dark mode gives the interface a sleek, ambient pro look.</div>
+    <div id="head-con">
+        <div class="hero-copy">
+            <p class="eyebrow">Metric / Imperial</p>
+            <h1 class="title">Unit Conversion Studio</h1>
+            <p class="subtitle">Fast, accurate measurement conversions with a clean, polished interface.</p>
+        </div>
+        <div class="controls">
+            <input type="number" id="input-el" value="20" placeholder="Enter a value">
+            <button id="input-btn">Convert</button>
+        </div>
+        <div id="summary-banner" class="summary-banner" aria-live="polite">
+            <p class="summary-heading">Quick results</p>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span class="summary-value" id="summary-length">0</span>
+                    <span class="summary-label">feet</span>
+                    <small>Length</small>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value" id="summary-volume">0</span>
+                    <span class="summary-label">gallons</span>
+                    <small>Volume</small>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value" id="summary-mass">0</span>
+                    <span class="summary-label">pounds</span>
+                    <small>Mass</small>
+                </div>
+            </div>
+            <div id="history-line" class="history-line">Latest conversion will appear here.</div>
+            <div class="history-actions">
+                <button id="clear-history" class="clear-history">Clear history</button>
+                <span class="history-note">History is saved in your browser.</span>
+            </div>
+            <ul id="history-list" class="history-list" aria-live="polite">
+                <li class="history-item">No history yet.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div class="unit">
+            <h2 class="unit-title">Length <span class="unit-label">(meters / feet)</span></h2>
+            <p class="unit-note">Convert between metric and imperial length units.</p>
+            <div class="unit-data" id="length" aria-live="polite">Enter a value and convert.</div>
+        </div>
+        <div class="unit">
+            <h2 class="unit-title">Volume <span class="unit-label">(liters / gallons)</span></h2>
+            <p class="unit-note">Convert between metric and imperial volume units.</p>
+            <div class="unit-data" id="volume" aria-live="polite">Enter a value and convert.</div>
+        </div>
+        <div class="unit">
+            <h2 class="unit-title">Mass <span class="unit-label">(kilograms / pounds)</span></h2>
+            <p class="unit-note">Convert between metric and imperial mass units.</p>
+            <div class="unit-data" id="mass" aria-live="polite">Enter a value and convert.</div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
