@@ -1,0 +1,819 @@
+:root {
+  /* Core Palette */
+  --color-bg-darkest:  #0d0d0d;   /* deepest black – page bg */
+  --color-bg-sidebar:  #141414;   /* sidebar panel */
+  --color-bg-main:     #181818;   /* main content bg */
+  --color-bg-card:     #222222;   /* card / hover bg */
+  --color-bg-topbar:   #141414;   /* top navbar */
+
+  /* Accent */
+  --color-green:       #1db954;   /* Spotify green */
+  --color-green-hover: #1ed760;   /* lighter green on hover */
+
+  /* Hero gradient colour (teal/cyan from screenshot) */
+  --color-hero-teal:   #0b7c7c;
+  --color-hero-dark:   #051e1e;
+
+  /* Text */
+  --color-text-primary:   #ffffff;
+  --color-text-secondary: #b3b3b3;
+  --color-text-dim:       #6a6a6a;
+
+  /* Borders & Dividers */
+  --color-border: rgba(255,255,255,0.07);
+
+  /* Font */
+  --font-main: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Sizing */
+  --sidebar-width: 210px;
+  --topbar-height: 64px;
+  --hero-height:   340px;
+}
+
+/* ─────────────────────────────────────────────
+   2. RESET & BASE STYLES
+   ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-darkest);
+  color: var(--color-text-primary);
+  overflow: hidden; /* prevent outer scroll; inner scroll handled per section */
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-main);
+}
+
+/* ─────────────────────────────────────────────
+   3. LAYOUT – Sidebar + Main two-column grid
+   ───────────────────────────────────────────── */
+body {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: 100vh;
+}
+
+/* ─────────────────────────────────────────────
+   4. SIDEBAR
+   ───────────────────────────────────────────── */
+.sidebar {
+  grid-column: 1;
+  background-color: var(--color-bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  overflow-y: auto;
+  /* subtle right border */
+  border-right: 1px solid var(--color-border);
+}
+
+/* Scrollbar style for sidebar */
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* -- Logo -- */
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 28px;
+}
+
+.sidebar__logo-icon {
+  font-size: 28px;
+  color: var(--color-green);
+}
+
+.sidebar__logo-text {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+  color: var(--color-text-primary);
+}
+
+/* -- Section Labels (FEATURE LIST, YOUR LIBRARY, PLAYLIST) -- */
+.sidebar__section-label {
+  font-family: var(--font-main);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: var(--color-text-dim);
+  padding: 0 20px 10px;
+}
+
+/* -- Nav wrapper spacing -- */
+.sidebar__nav {
+  margin-bottom: 28px;
+}
+
+/* -- Nav List -- */
+.sidebar__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* -- Nav Link -- */
+.sidebar__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  border-radius: 4px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* Hover state */
+.sidebar__nav-link:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(255,255,255,0.06);
+}
+
+/* Active link (Discover) */
+.sidebar__nav-link--active {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Nav Icons */
+.sidebar__nav-icon {
+  font-size: 1rem;
+  width: 18px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+
+/* Green icon for active (Discover) */
+.sidebar__nav-icon--green {
+  color: var(--color-green) !important;
+}
+
+/* Active link icon inherits white */
+.sidebar__nav-link--active .sidebar__nav-icon {
+  color: var(--color-text-primary);
+}
+
+/* Hover changes icon colour too */
+.sidebar__nav-link:hover .sidebar__nav-icon {
+  color: var(--color-text-primary);
+}
+
+/* ─────────────────────────────────────────────
+   5. MAIN CONTENT PANEL
+   ───────────────────────────────────────────── */
+.main {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   6. TOP BAR (Navbar)
+   ───────────────────────────────────────────── */
+.topbar {
+  height: var(--topbar-height);
+  background-color: var(--color-bg-topbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+/* -- Search Bar -- */
+.topbar__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #2a2a2a;
+  border-radius: 24px;
+  padding: 9px 18px;
+  width: 280px;
+  transition: background 0.2s;
+}
+
+.topbar__search:focus-within {
+  background-color: #333;
+  outline: 1px solid var(--color-green);
+}
+
+.topbar__search-icon {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.topbar__search-input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  width: 100%;
+}
+
+.topbar__search-input::placeholder {
+  color: var(--color-text-dim);
+}
+
+/* -- Right Side -- */
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Bell Icon */
+.topbar__bell {
+  position: relative;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.topbar__bell:hover {
+  color: var(--color-text-primary);
+}
+
+/* Notification Badge */
+.topbar__bell-badge {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  background-color: var(--color-green);
+  color: #000;
+  font-size: 0.55rem;
+  font-weight: 700;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* User Info */
+.topbar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.topbar__user-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.topbar__greeting {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.topbar__greeting strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.topbar__badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* PREMIUM badge */
+.topbar__badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  font-family: var(--font-main);
+}
+
+.topbar__badge--premium {
+  background-color: var(--color-green);
+  color: #000;
+}
+
+.topbar__badge--days {
+  background-color: transparent;
+  border: 1px solid var(--color-text-dim);
+  color: var(--color-text-secondary);
+}
+
+/* User Avatar */
+.topbar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-green);
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.topbar__user:hover .topbar__avatar {
+  border-color: var(--color-green-hover);
+}
+
+/* ─────────────────────────────────────────────
+   7. HERO SECTION (Artist Banner)
+   ───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: var(--hero-height);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Right-side artist photo background */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  /* Wiz Khalifa performing – teal stage light effect */
+  background-image:
+    url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=500&fit=crop');
+  background-size: cover;
+  background-position: center top;
+  filter: hue-rotate(160deg) saturate(1.4) brightness(0.7);
+}
+
+/* Gradient overlay: solid dark teal on left, transparent on right */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  /* Matches the teal→transparent gradient from the screenshot */
+  background: linear-gradient(
+    90deg,
+    #0b4e4e 0%,
+    #0b4e4ecc 40%,
+    #0b4e4e66 65%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Artist content sits on top of overlay */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 0 36px 36px;
+  max-width: 55%;
+}
+
+/* -- Verified Badge -- */
+.hero__verified {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.hero__verified-icon {
+  color: #4b9eff; /* blue verified tick */
+  font-size: 1rem;
+}
+
+/* -- Artist Name -- */
+.hero__artist-name {
+  font-family: var(--font-main);
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+/* -- Monthly Listeners -- */
+.hero__listeners {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 24px;
+}
+
+/* -- Action Buttons Row -- */
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─────────────────────────────────────────────
+   8. BUTTONS
+   ───────────────────────────────────────────── */
+
+/* Base button reset (already done above) */
+.btn {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border-radius: 24px;
+  transition: all 0.2s ease;
+}
+
+/* Listen Now – solid green pill with play icon */
+.btn--listen-now {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-green);
+  color: #000;
+  padding: 11px 22px;
+  border-radius: 24px;
+  letter-spacing: 0.3px;
+}
+
+.btn--listen-now:hover {
+  background-color: var(--color-green-hover);
+  transform: scale(1.03);
+}
+
+/* Play icon inside Listen Now */
+.btn__play-icon {
+  font-size: 0.75rem;
+  background-color: #000;
+  color: var(--color-green);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px; /* optical centering for triangle */
+}
+
+/* Follow – outlined pill */
+.btn--follow {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 10px 28px;
+  border-radius: 24px;
+  letter-spacing: 0.3px;
+}
+
+.btn--follow:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(255,255,255,0.08);
+}
+
+/* More (…) – circular outlined button */
+.btn--more {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.btn--more:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(255,255,255,0.08);
+}
+
+/* ─────────────────────────────────────────────
+   9. SCROLLABLE CONTENT AREA (below hero)
+   ───────────────────────────────────────────── */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 28px 40px;
+  background-color: var(--color-bg-main);
+  /* Smooth fade-in from hero */
+  background: linear-gradient(
+    180deg,
+    #0e2222 0%,    /* matches hero teal at top */
+    var(--color-bg-main) 120px
+  );
+}
+
+/* Custom scrollbar */
+.content-area::-webkit-scrollbar { width: 5px; }
+.content-area::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+/* ─────────────────────────────────────────────
+   10. SECTIONS (Recently Played, Fans Also Like)
+   ───────────────────────────────────────────── */
+.section {
+  margin-bottom: 36px;
+}
+
+/* Section Header: title + arrows on opposite ends */
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section__title {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.3px;
+}
+
+/* Arrow Buttons */
+.section__arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.arrow-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+
+.arrow-btn:hover {
+  background-color: var(--color-green);
+  color: #000;
+}
+
+/* ─────────────────────────────────────────────
+   11. CARDS ROW
+   ───────────────────────────────────────────── */
+.cards-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;         /* allow horizontal scroll if needed */
+  padding-bottom: 8px;
+}
+
+/* Hide horizontal scrollbar */
+.cards-row::-webkit-scrollbar { height: 0; }
+
+/* ─────────────────────────────────────────────
+   12. CARD COMPONENT (album / track cards)
+   ───────────────────────────────────────────── */
+.card {
+  flex-shrink: 0;
+  width: 148px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Image wrapper: square with overflow hidden */
+.card__img-wrap {
+  width: 148px;
+  height: 148px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background-color: #2a2a2a;
+}
+
+/* Circular image wrap for artist cards */
+.card__img-wrap--circle {
+  border-radius: 50%;
+}
+
+/* Card image */
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Slightly dim image on hover to make play button pop */
+.card:hover .card__img {
+  filter: brightness(0.65);
+  transform: scale(1.05);
+}
+
+/* Play button overlay (hidden by default, shown on hover) */
+.card__hover-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover .card__hover-play {
+  opacity: 1;
+}
+
+/* The green circle play button */
+.card__hover-play i {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-green);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding-left: 3px; /* optical centering */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.card:hover .card__hover-play i {
+  transform: scale(1.08);
+}
+
+.card__hover-play i:hover {
+  background-color: var(--color-green-hover) !important;
+}
+
+/* Always-visible play button for the active card */
+.card__hover-play--visible {
+  opacity: 1 !important;
+}
+
+/* Card text */
+.card__title {
+  margin-top: 10px;
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__subtitle {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Active card: green text */
+.card__title--green {
+  color: var(--color-green);
+}
+
+.card__subtitle--green {
+  color: var(--color-green);
+}
+
+/* ─────────────────────────────────────────────
+   13. ARTIST CARD (Fans Also Like – circle)
+   ───────────────────────────────────────────── */
+.card--artist {
+  /* No text below circles in this row */
+  width: 148px;
+}
+
+.card--artist .card__img-wrap {
+  width: 148px;
+  height: 148px;
+}
+
+/* ─────────────────────────────────────────────
+   14. SCROLLBAR UTILITIES (global)
+   ───────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+/* ─────────────────────────────────────────────
+   15. HOVER EFFECTS – Sidebar links (detailed)
+   ───────────────────────────────────────────── */
+
+/* Underline animation on sidebar links */
+.sidebar__nav-link span {
+  position: relative;
+}
+
+.sidebar__nav-link span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-green);
+  transition: width 0.25s ease;
+}
+
+.sidebar__nav-link:hover span::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+   16. TRANSITIONS – General micro-interactions
+   ───────────────────────────────────────────── */
+
+/* Smooth scale on clickable elements */
+.arrow-btn:active {
+  transform: scale(0.92);
+}
+
+.btn--listen-now:active {
+  transform: scale(0.97);
+}
+
+.btn--follow:active {
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────────
+   17. RESPONSIVE – basic containment
+      (Full responsiveness can be extended further)
+   ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  :root {
+    --sidebar-width: 60px;
+  }
+
+  /* Hide text labels, show only icons */
+  .sidebar__logo-text,
+  .sidebar__section-label,
+  .sidebar__nav-link span {
+    display: none;
+  }
+
+  .sidebar__logo {
+    justify-content: center;
+    padding: 0 0 24px;
+  }
+
+  .sidebar__nav-link {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .hero__artist-name {
+    font-size: 2.4rem;
+  }
+
+  .hero__content {
+    max-width: 80%;
+  }
+}

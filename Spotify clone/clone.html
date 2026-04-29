@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify - Wiz Khalifa</title>
+
+  <!-- Google Fonts: Circular-like alternatives -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./ui.css"/>
+</head>
+<body>
+    <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Spotify Logo -->
+    <div class="sidebar__logo">
+      <i class="fa-brands fa-spotify sidebar__logo-icon"></i>
+      <span class="sidebar__logo-text">Spotify</span>
+    </div>
+
+    <!-- Feature Navigation -->
+    <nav class="sidebar__nav">
+      <p class="sidebar__section-label">FEATURE LIST</p>
+      <ul class="sidebar__nav-list">
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-solid fa-house sidebar__nav-icon"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item sidebar__nav-item--active">
+          <a href="#" class="sidebar__nav-link sidebar__nav-link--active">
+            <!-- Spotify circle icon for Discover -->
+            <i class="fa-brands fa-spotify sidebar__nav-icon sidebar__nav-icon--green"></i>
+            <span>Discover</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-solid fa-tower-broadcast sidebar__nav-icon"></i>
+            <span>Radio</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Your Library Section -->
+    <nav class="sidebar__nav sidebar__nav--library">
+      <p class="sidebar__section-label">YOUR LIBRARY</p>
+      <ul class="sidebar__nav-list">
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-regular fa-clock sidebar__nav-icon"></i>
+            <span>Recently Played</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-solid fa-record-vinyl sidebar__nav-icon"></i>
+            <span>Album</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-regular fa-heart sidebar__nav-icon"></i>
+            <span>Favorite</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-solid fa-user sidebar__nav-icon"></i>
+            <span>Artist</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Playlist Section -->
+    <nav class="sidebar__nav sidebar__nav--playlist">
+      <p class="sidebar__section-label">PLAYLIST</p>
+      <ul class="sidebar__nav-list">
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fa-solid fa-list sidebar__nav-icon"></i>
+            <span>Create Playlist</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </aside>
+  <!-- END SIDEBAR -->
+
+
+  <!--main content area-->
+  <main class="main">
+
+    <!-- ---- TOP NAVBAR ---- -->
+    <header class="topbar">
+      <!-- Search Bar -->
+      <div class="topbar__search">
+        <i class="fa-solid fa-magnifying-glass topbar__search-icon"></i>
+        <input type="text" class="topbar__search-input" placeholder="Artists, songs, or podcasts"/>
+      </div>
+
+      <!-- Right Side: Bell + User Info -->
+      <div class="topbar__right">
+        <!-- Notification Bell -->
+        <div class="topbar__bell">
+          <i class="fa-solid fa-bell"></i>
+          <span class="topbar__bell-badge">2</span>
+        </div>
+
+        <!-- User Info -->
+        <div class="topbar__user">
+          <div class="topbar__user-text">
+            <span class="topbar__greeting">Hello! <strong>Indian Choudhary</strong></span>
+            <div class="topbar__badges">
+              <span class="topbar__badge topbar__badge--premium">PREMIUM</span>
+              <span class="topbar__badge topbar__badge--days">2 Days Left</span>
+            </div>
+          </div>
+          <!-- User Avatar -->
+          <div class="topbar__avatar">
+            <img src="https://i.pravatar.cc/40?img=3" alt="User Avatar"/>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ---- END TOPBAR ---- -->
+
+
+    <!-- ---- HERO / ARTIST BANNER ---- -->
+    <section class="hero">
+      <!-- Teal gradient overlay on left for text readability -->
+      <div class="hero__overlay"></div>
+
+      <!-- Artist background image (right side) -->
+      <div class="hero__bg"></div>
+
+      <!-- Artist Info -->
+      <div class="hero__content">
+        <!-- Verified Badge -->
+        <div class="hero__verified">
+          <i class="fa-solid fa-circle-check hero__verified-icon"></i>
+          <span>Verified Artist</span>
+        </div>
+
+        <!-- Artist Name -->
+        <h1 class="hero__artist-name">Wiz Khalifa</h1>
+
+        <!-- Monthly Listeners -->
+        <p class="hero__listeners">2,987,200 monthly listeners</p>
+
+        <!-- Action Buttons -->
+        <div class="hero__actions">
+          <!-- Listen Now Button -->
+          <button class="btn btn--listen-now">
+            <span>Listen Now</span>
+            <i class="fa-solid fa-play btn__play-icon"></i>
+          </button>
+
+          <!-- Follow Button -->
+          <button class="btn btn--follow">Follow</button>
+
+          <!-- More Options Button -->
+          <button class="btn btn--more">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- ---- END HERO ---- -->
+
+
+    <!-- ---- SCROLLABLE CONTENT AREA ---- -->
+    <div class="content-area">
+
+      <!-- ==== RECENTLY PLAYED SECTION ==== -->
+      <section class="section">
+        <div class="section__header">
+          <h2 class="section__title">Recently Played</h2>
+          <!-- Carousel Navigation Arrows -->
+          <div class="section__arrows">
+            <button class="arrow-btn arrow-btn--prev">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="arrow-btn arrow-btn--next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="cards-row">
+
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/background img.jfif"/>
+              <!-- Play overlay on hover -->
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/guitar.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/Microphone.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/studio.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+          <!-- Card 5 – Active/highlighted (green title) -->
+          <div class="card card--active">
+            <div class="card__img-wrap">
+              <img src="./Images/Tape.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <!-- Visible green play button on active card -->
+              <div class="card__hover-play card__hover-play--visible">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title card__title--green">Wiz Got Wings</p>
+            <p class="card__subtitle card__subtitle--green">Latest Release</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/condenser_mic.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="./Images/Crowd.jfif" alt="Wiz Got Wings" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <p class="card__title">Wiz Got Wings</p>
+            <p class="card__subtitle">Latest Release</p>
+          </div>
+
+        </div>
+      </section>
+      <!-- END RECENTLY PLAYED -->
+
+
+      <!-- FANS ALSO LIKE SECTION -->
+      <section class="section">
+        <div class="section__header">
+          <h2 class="section__title">Fans also like</h2>
+          <!-- Carousel Navigation Arrows -->
+          <div class="section__arrows">
+            <button class="arrow-btn arrow-btn--prev">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="arrow-btn arrow-btn--next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Artist Cards Row (circular images) -->
+        <div class="cards-row">
+
+          <!-- Artist Card 1 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 1.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 2 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 2.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 3 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 3.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 4 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 4.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 5 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 5.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 6 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 6.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist Card 7 -->
+          <div class="card card--artist">
+            <div class="card__img-wrap card__img-wrap--circle">
+              <img src="./Images/Artist 7.jfif" alt="Artist" class="card__img"/>
+              <div class="card__hover-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- End Fans Also Like -->
+
+    </div>
+    <!-- ---- END SCROLLABLE CONTENT AREA ---- -->
+
+  </main>
+  <!-- END MAIN CONTENT AREA -->
+
+</body>
+</html>
