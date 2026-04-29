@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: inset 0 0 10px rgba(255, 71, 87, 0.3), 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+    50% {
+        box-shadow: inset 0 0 20px rgba(255, 71, 87, 0.6), 0 0 30px rgba(255, 107, 107, 0.8);
+    }
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+    }
+    50% {
+        text-shadow: 0 0 15px #ff6b6b, 0 0 25px #ff6b6b, 0 0 35px #ff6b6b, 0 0 40px #ff6b6b;
+    }
+}
+
+@keyframes containerGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 107, 107, 0.2);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 107, 107, 0.4);
+    }
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        background-position: 0% 50%;
+        filter: brightness(1) contrast(1);
+    }
+    25% {
+        background-position: 100% 50%;
+        filter: brightness(1.1) contrast(1.05);
+    }
+    50% {
+        background-position: 50% 100%;
+        filter: brightness(0.95) contrast(0.95);
+    }
+    75% {
+        background-position: 50% 0%;
+        filter: brightness(1.05) contrast(1.1);
+    }
+}
+
+body {
+    background: url("./Images/bball1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Orbitron', monospace;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: backgroundShift 20s ease-in-out infinite;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+#container {
+    display: flex;
+    background: linear-gradient(145deg, #0f0f23, #1a1a2e);
+    background-image: url("./Images/bball.jpg");
+    background-size: cover;
+    background-blend-mode: overlay;
+    padding: 30px;
+    width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ff6b6b;
+    animation: containerGlow 4s ease-in-out infinite;
+    position: relative;
+}
+
+#container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #ff4757, #ff6b6b);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: containerGlow 4s ease-in-out infinite;
+}
+
+.board {
+    color: white;
+    font-family: 'Orbitron', monospace;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    min-width: 200px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.title {
+    font-size: 24px;
+    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+    animation: titleGlow 3s ease-in-out infinite;
+    letter-spacing: 2px;
+}
+
+.score {
+    background: linear-gradient(45deg, #000, #333);
+    font-size: 60px;
+    color: #ff4757;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 15px auto;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 15px #ff4757, 0 0 25px #ff4757;
+    border: 2px solid #ff6b6b;
+    box-shadow: inset 0 0 10px rgba(255, 71, 87, 0.3), 0 0 20px rgba(255, 107, 107, 0.3);
+    animation: pulseGlow 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.score::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: -100%; }
+}
+
+.btn {
+    border: 2px solid #ff6b6b;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 107, 107, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 107, 107, 0.4), 0 0 20px rgba(255, 107, 107, 0.6);
+    border-color: #ff4757;
+}
+
+.reset-btn {
+    font-size: 18px;
+    display: block;
+    width: 120px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    border-radius: 10px;
+    border: 2px solid #ff6b6b;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 107, 107, 0.3);
+    font-family: 'Orbitron', monospace;
+    animation: pulseGlow 3s ease-in-out infinite;
+    position: relative;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(45deg, #ff4757, #ff3742);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 71, 87, 0.5), 0 0 25px rgba(255, 71, 87, 0.7);
+    border-color: #ff3742;
+}
+
+@media screen and (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .board {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .score {
+        font-size: 50px;
+    }
+}
