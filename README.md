@@ -1,2 +1,2 @@
 # webdev
-This is the collection of my web dev projects.
+These are the collection of my web dev projects.
