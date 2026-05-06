@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ofulue Joshua — Software Developer & 3D Artist</title>
+  <meta name="description" content="Portfolio of Ofulue Joshua, Software Developer & 3D Artist based in Lagos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo" id="nav-logo">OJ</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#work" class="nav-link" id="nav-work">Work</a></li>
+      <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+      <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+      <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon theme-icon--moon">☽</span>
+        <span class="theme-icon theme-icon--sun">☀</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close">✕</button>
+    <ul>
+      <li><a href="#work" class="mobile-link">Work</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <span class="hero-tag">Based in Lagos, Nigeria</span>
+      <h1 class="hero-title">
+        <span>Ofulue</span>
+        <em>Joshua</em>
+      </h1>
+      <p class="hero-role">Software Developer &amp; 3D Artist</p>
+      <p class="hero-quote">"Sculpting light and form in the digital realm."</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary" id="btn-view-work">View Work</a>
+        <a href="#contact" class="btn-outline" id="btn-get-in-touch">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="work" id="work">
+    <div class="section-header">
+      <span class="label">Portfolio</span>
+      <h2 class="section-title">Featured Work</h2>
+      <p class="section-desc">Bridging the gap between engineering and aesthetics through creative coding, architectural visualizations, and motion graphics.</p>
+    </div>
+    <div class="work-grid">
+
+      <article class="work-card card-large reveal" id="card-desert">
+        <div class="card-visual" id="vis-desert">
+          <canvas class="card-canvas" id="canvas-desert"></canvas>
+          <div class="card-overlay">
+            <div class="card-tags">
+              <span>Architecture</span>
+              <span>3D Visualization</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Desert Pavilion</h3>
+          <p class="card-desc">Exploring the interplay of harsh sunlight and geometric concrete structures in arid environments.</p>
+          <a href="#card-desert" class="card-link" id="link-desert">View Project →</a>
+        </div>
+      </article>
+
+      <article class="work-card reveal" id="card-ceramic">
+        <div class="card-visual" id="vis-ceramic">
+          <canvas class="card-canvas" id="canvas-ceramic"></canvas>
+          <div class="card-overlay">
+            <div class="card-tags">
+              <span>Product Design</span>
+              <span>CGI</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ceramic Forms</h3>
+          <p class="card-desc">Crafting digital experiences with a focus on editorial aesthetics and technical precision.</p>
+          <a href="#card-ceramic" class="card-link" id="link-ceramic">View Project →</a>
+        </div>
+      </article>
+
+      <article class="work-card reveal" id="card-aura">
+        <div class="card-visual" id="vis-aura">
+          <canvas class="card-canvas" id="canvas-aura"></canvas>
+          <div class="card-overlay">
+            <div class="card-tags">
+              <span>Electronics</span>
+              <span>Material Study</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Aura Smart Speaker</h3>
+          <p class="card-desc">Material exploration for consumer electronics focusing on warmth and tactility.</p>
+          <a href="#card-aura" class="card-link" id="link-aura">View Project →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-left reveal">
+        <span class="label">About Me</span>
+        <h2 class="section-title">Code &amp;<br><em>Craft</em></h2>
+        <div class="about-3d-wrap">
+          <canvas id="about-canvas"></canvas>
+        </div>
+      </div>
+      <div class="about-right reveal">
+        <p class="about-bio">I am an experienced 3D artist and designer based in <strong>Lagos, Nigeria</strong>. I focus on creating visually captivating and user-friendly web experiences that blend functionality with modern aesthetics.</p>
+        <p class="about-bio">My work sits at the intersection of software engineering and visual arts — where technical precision meets creative expression.</p>
+        <div class="skills">
+          <div class="skill" id="skill-1">
+            <span class="skill-num">01</span>
+            <div>
+              <h4>3D Visualization</h4>
+              <p>Blender · Three.js · Cinema 4D</p>
+            </div>
+          </div>
+          <div class="skill" id="skill-2">
+            <span class="skill-num">02</span>
+            <div>
+              <h4>Web Development</h4>
+              <p>React · Next.js · WebGL · GSAP</p>
+            </div>
+          </div>
+          <div class="skill" id="skill-3">
+            <span class="skill-num">03</span>
+            <div>
+              <h4>Motion &amp; CGI</h4>
+              <p>After Effects · Houdini · Substance</p>
+            </div>
+          </div>
+          <div class="skill" id="skill-4">
+            <span class="skill-num">04</span>
+            <div>
+              <h4>Product Design</h4>
+              <p>Figma · Stitch · Design Systems</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="experience" id="experience">
+    <div class="section-header">
+      <span class="label">Career</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal" id="exp-1">
+        <div class="exp-year">2023 — Present</div>
+        <div class="exp-body">
+          <h3>Senior 3D Artist &amp; Developer</h3>
+          <p class="exp-company">Freelance / Independent Studio</p>
+          <p class="exp-desc">Leading architectural visualization and interactive web experience projects for international clients across hospitality, real estate, and consumer brands.</p>
+          <div class="exp-tags"><span>Three.js</span><span>Blender</span><span>React</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal" id="exp-2">
+        <div class="exp-year">2021 — 2023</div>
+        <div class="exp-body">
+          <h3>UI/UX Designer &amp; 3D Generalist</h3>
+          <p class="exp-company">Creative Studio, Lagos</p>
+          <p class="exp-desc">Designed immersive product experiences combining CGI renders with interactive web interfaces for Lagos-based startups and consumer brands.</p>
+          <div class="exp-tags"><span>Figma</span><span>Cinema 4D</span><span>WebGL</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal" id="exp-3">
+        <div class="exp-year">2019 — 2021</div>
+        <div class="exp-body">
+          <h3>Junior Developer &amp; Visual Designer</h3>
+          <p class="exp-company">Tech Agency, Lagos</p>
+          <p class="exp-desc">Built responsive web applications and designed brand identities. Began specializing in 3D design tools and motion graphics.</p>
+          <div class="exp-tags"><span>HTML/CSS</span><span>JavaScript</span><span>After Effects</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <span class="label">Let's Connect</span>
+        <h2 class="section-title">Start a<br><em>Conversation</em></h2>
+        <p class="contact-desc">Whether you have a project in mind, want to collaborate, or just want to say hello — my inbox is always open.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@ofuluejoshua.com" class="contact-link" id="contact-email">
+            <span class="cl-icon">✉</span> hello@ofuluejoshua.com
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link" id="contact-linkedin">
+            <span class="cl-icon">in</span> LinkedIn
+          </a>
+          <a href="https://dribbble.com" target="_blank" class="contact-link" id="contact-dribbble">
+            <span class="cl-icon">◉</span> Dribbble
+          </a>
+          <a href="https://layers.to" target="_blank" class="contact-link" id="contact-layers">
+            <span class="cl-icon">◈</span> Layers
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-block" id="btn-send">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">OJ</span>
+        <p>An editorial approach to software and visual arts.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2024 Ofulue Joshua. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
