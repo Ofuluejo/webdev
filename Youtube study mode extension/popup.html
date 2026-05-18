@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Study Mode</title>
+  <link rel="icon" type="image/x-icon" href="./icon.png">
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body class="light">
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>📚 Study Mode</h1>
+      <p class="tagline">Stay focused. Learn better.</p>
+      <div class="goal-banner">
+        🔥 Current Streak: <strong id="streakDisplay">0 days</strong>
+      </div>
+    </header>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <span>🌙 Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Focus Mode -->
+    <section class="focus-section">
+      <div class="toggle-container">
+        <div class="toggle-label">
+          <span class="icon">🎯</span>
+          <div>
+            <h3>Focus Mode</h3>
+            <p class="description">Hide all distractions on YouTube</p>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="focusModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div id="focusModeStatus" class="status-badge">OFF</div>
+    </section>
+
+    <!-- Timer -->
+    <section class="timer-section">
+      <h3>⏱️ Study Timer</h3>
+      
+      <div class="preset-selector">
+        <label>Duration:</label>
+        <select id="durationSelect">
+          <option value="15">15 minutes</option>
+          <option value="25" selected>25 minutes (Classic)</option>
+          <option value="45">45 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+      </div>
+
+      <div class="timer-display">
+        <div id="timerDisplay" class="timer-text">25:00</div>
+        <div id="timerStatus" class="timer-status">Ready to focus</div>
+      </div>
+
+      <div class="timer-controls">
+        <button id="startBtn" class="btn btn-primary">Start Session</button>
+        <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <div class="timer-mode">
+        <span id="sessionType" class="session-type">Study Session (25min)</span>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+      <h3>📊 Today's Progress</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="sessionsCount">0</div>
+          <div class="stat-label">Sessions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="minutesCount">0</div>
+          <div class="stat-label">Minutes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="actions-section">
+      <button id="resetStatsBtn" class="btn btn-link">Reset Daily Stats</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p class="footer-text">Built for deep focus • Keep going! 🌟</p>
+    </footer>
+  </div>
+
+  <script src="./popup.js"></script>
+</body>
+</html>
