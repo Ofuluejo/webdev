@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        font-family: 'Nunito', sans-serif; 
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4 sm:p-6">
+
+  <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden">
+
+    <div class="flex-1 flex flex-col items-center justify-center px-8 py-12 sm:px-10 md:px-14 md:py-16">
+
+      <h1 class="text-[2.4rem] font-black text-gray-900 tracking-tight mb-7">
+        Sign in
+      </h1>
+
+      <div class="flex items-center gap-3.5 mb-5">
+
+        <button type="button" aria-label="Continue with Facebook" class="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          <img src="./img/icons8-facebook-48.png" alt="facebook icon" class="h-8 w-8"/>
+        </button>
+
+        <button type="button" aria-label="Continue with Google" class="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          <img src="./img/icons8-google-48.png" alt="google icon" class="h-8 w-8"/>
+        </button>
+
+        <button type="button" aria-label="Continue with LinkedIn" class="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          <img src="./img/icons8-linkedin-48.png" alt="linkedin icon" class="h-8 w-8"/>
+        </button>
+
+      </div>
+
+      <p class="text-xs text-gray-400 mb-5 tracking-wide">or use your account</p>
+
+      <form class="w-full space-y-4" novalidate>
+
+        <div>
+          <label for="email" class="sr-only">Email address</label>
+          <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required class="w-full bg-gray-100 rounded-xl px-5 py-[14px] text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-gray-200 transition-colors duration-200" />
+        </div>
+
+        <div>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required class="w-full bg-gray-100 rounded-xl px-5 py-[14px] text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-gray-200 transition-colors duration-200" />
+        </div>
+
+        <div class="text-center pt-1">
+          <a href="#" class="text-xs text-gray-400 hover:text-gray-600 transition-colors duration-200">
+            Forgot your password?
+          </a>
+        </div>
+
+        <button type="submit" class="w-full py-[14px] rounded-full bg-gradient-to-r from-[#ff4d6b] to-[#ff7055] text-white font-black text-xs tracking-[0.14em] uppercase hover:shadow-lg hover:shadow-[#ff4d6b]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer">
+          Sign In
+        </button>
+
+      </form>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center px-10 py-14 text-center" style="background: linear-gradient(145deg, #ff4d6b 0%, #f9638a 45%, #ff85b3 100%)">
+      <h2 class="text-5xl md:text-[3.2rem] font-black text-white leading-tight mb-4">
+        Hello, Friend!
+      </h2>
+
+      <p class="text-white/80 text-[0.9375rem] leading-relaxed mb-8 max-w-[270px]">
+        Enter your personal details and start your journey with us
+      </p>
+
+      <button type="button" class="px-12 py-[14px] rounded-full border-2 border-white/90 text-white font-black text-xs tracking-[0.14em] uppercase hover:bg-white hover:text-[#ff4d6b] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer">
+        Sign Up
+      </button>
+    </div>
+
+  </div>
+
+</body>
+</html>
